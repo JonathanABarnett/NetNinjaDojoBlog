@@ -1,17 +1,22 @@
-const Home = () => {
-  const handleClick = (name) => {
-    console.log("you clicked me, " + name);
-  };
+import { useState } from "react";
 
-  const eventClick = (e) => {
-    console.log(e.target);
+const Home = () => {
+  // [varName, setVarName] = useState(initialValue);
+  const [name, setName] = useState("JB");
+  const [age, setAge] = useState(33);
+
+  const handleClick = () => {
+    setName("Jonathan");
+    setAge(55);
   };
 
   return (
     <div className="home">
       <h2>Home Page</h2>
-      <button onClick={() => handleClick("You Nerd")}>Click Me</button>
-      <button onClick={eventClick}>Event Click</button>
+      <p>
+        {name} is {age} years old
+      </p>
+      <button onClick={handleClick}>Click Me</button>
     </div>
   );
 };
