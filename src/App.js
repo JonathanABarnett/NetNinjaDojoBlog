@@ -1,31 +1,21 @@
-
 import Navbar from "./Navbar";
 import Home from "./Home";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
-  const title = "Welcome to the new blog";
-  const likes = 50;
-  const person = { name: "JB", age: 33 };
-  const link = "https://www.google.com";
-
   return (
-    <div className="App">
-      {/* Using { }, JSX knows it's dynamic value (variable) 
-      <h1>{title}</h1>
-      <p>Like {likes} times </p>
-      Cannot use object variables 
-      <p>{person}</p>
-      <p>{Math.floor(Math.random() * 10)}</p>
-      <a href={link}>Going to Google</a>
-      */}
-
-      {/* Import Component */}
-      <Navbar />
-
-      <div className="content">
-        <Home />
+    <Router>
+      <div className="App">
+        <Navbar />
+        <div className="content">
+          <Switch>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
