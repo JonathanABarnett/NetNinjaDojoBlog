@@ -4,11 +4,20 @@ const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("Cat");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const blog = { title, body, author };
+
+    console.log(blog);
+    setTitle("");
+    setBody("");
+    setAuthor("Cat");
+  };
 
   return (
     <div className="create">
       <h2>Add A New Blog</h2>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <label>Blog Title: </label>
         <input
           type="text"
@@ -30,9 +39,6 @@ const Create = () => {
           <option value="Bird">Bird</option>
         </select>
         <button>Add Blog</button>
-        <p>{title}</p>
-        <p>{body}</p>
-        <p>{author}</p>
       </form>
     </div>
   );
